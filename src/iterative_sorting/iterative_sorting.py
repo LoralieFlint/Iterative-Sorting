@@ -1,27 +1,52 @@
 # TO-DO: Complete the selection_sort() function below
-def selection_sort(arr):
-    # loop through n-1 elements
-    for i in range(0, len(arr) - 1):
+our_numbers = [5,9,3,6,2,1,7,8,4]
+def selection_sort(items):
+    # Outer Loop
+    for i in range(0, len(items) - 1):
         cur_index = i
         smallest_index = cur_index
-        # TO-DO: find next smallest element
-        # (hint, can do in 3 loc)
-        # Your code here
-
-
-        # TO-DO: swap
-        # Your code here
-
-    return arr
+        for j in range(cur_index + 1, len(items)):
+            if items[j] < items[smallest_index]:
+                smallest_index = j
+        items[smallest_index], items[cur_index] = items[cur_index], items[smallest_index]
+    return items
 
 
 # TO-DO:  implement the Bubble Sort function below
-def bubble_sort(arr):
-    # Your code here
+def bubbleSort(alist):
+    for passnum in range(len(alist)-1,0,-1):
+        for i in range(passnum):
+            if alist[i]>alist[i+1]:
+                temp = alist[i]
+                alist[i] = alist[i+1]
+                alist[i+1] = temp
 
+alist = [54,26,93,17,77,31,44,55,20]
+bubbleSort(alist)
+print(alist)
 
-    return arr
-
+  
+# Function to do insertion sort 
+def insertionSort(arr): 
+    # Traverse through 1 to len(arr) 
+    for i in range(1, len(arr)): 
+        key = arr[i] 
+        # Move elements of arr[0..i-1], that are 
+        # greater than key, to one position ahead 
+        # of their current position 
+        j = i-1
+        while j >=0 and key < arr[j] : 
+                arr[j+1] = arr[j] 
+                j -= 1
+        arr[j+1] = key 
+  
+# Driver code to test above 
+arr = [12, 11, 13, 5, 6] 
+insertionSort(arr) 
+print ("Sorted array is:") 
+for i in range(len(arr)): 
+    print ("%d" %arr[i]) 
+  
 '''
 STRETCH: implement the Counting Sort function below
 
